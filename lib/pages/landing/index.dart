@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './background.dart';
 
 class Landing extends StatelessWidget {
   static const routeName = '/';
@@ -7,14 +8,7 @@ class Landing extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Landing',
-            ),
-          ],
-        ),
+        child: Background()
       ),
     );
   }
