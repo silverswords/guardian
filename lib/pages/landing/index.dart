@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:guardian/global.dart';
 import './background.dart';
 
 class Landing extends StatelessWidget {
@@ -7,8 +8,13 @@ class Landing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(
-        child: Background()
+      child: Stack(
+        children: <Widget>[
+          Background(),
+          Container(
+            child: DigitClock(),
+          )
+        ],
       ),
     );
   }

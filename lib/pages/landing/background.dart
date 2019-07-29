@@ -82,7 +82,6 @@ class BackgroundPainter extends CustomPainter {
 
       circle.move();
 
-
       double baseOpacity = random.nextDouble();
       if (baseOpacity < 0.6) {
         baseOpacity = 0.6;
