@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:guardian/global.dart';
 import './background.dart';
+import './layout.dart';
 
 class Landing extends StatelessWidget {
   static const routeName = '/';
@@ -12,7 +12,7 @@ class Landing extends StatelessWidget {
         children: <Widget>[
           Background(),
           Container(
-            child: DigitClock(),
+            child: Layout(),
           )
         ],
       ),

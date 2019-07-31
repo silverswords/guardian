@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 class Background extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => BackgroundState();
-  
 }
 
 class BackgroundState extends State<Background> {
@@ -173,5 +172,4 @@ class Circle {
   }
 
   Offset get offset => Offset(x, y);
-
 }

@@ -191,7 +191,6 @@ class DigitClockPainter extends CustomPainter {
     _drawGroup(canvas, now.minute);
     _drawSeperator(canvas);
     _drawGroup(canvas, now.second);
-    _drawSeperator(canvas);
   }
 
   void _drawGroup(Canvas canvas, int group) {
