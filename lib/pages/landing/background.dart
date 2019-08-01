@@ -54,7 +54,7 @@ class BackgroundPainter extends CustomPainter {
   }
 
   void _drawBackground(Canvas canvas, Rect rect) {
-    canvas.drawRect(rect, Paint()..color = Colors.white);
+    canvas.drawRect(rect, Paint()..color = Color(0xff525252));
   }
 
   void _initialCircles(Rect rect, Random random) {
@@ -74,7 +74,9 @@ class BackgroundPainter extends CustomPainter {
   }
 
   void _drawCircles(Canvas canvas, Random random) {
-    final Paint paint = new Paint();
+    final Paint paint = Paint();
+    //final Color bubble = Color(0xfffffbbe);
+    final Color bubble = Color(0xfffaf562);
 
     for (int i = 0; i < counts; i++) {
       Circle circle = _circles[i];
@@ -91,11 +93,11 @@ class BackgroundPainter extends CustomPainter {
 
       Gradient gradient = new RadialGradient(
         colors: <Color>[
-          Colors.purple.withOpacity(baseOpacity * 0.9),
-          Colors.purple.withOpacity(baseOpacity * 0.8),
-          Colors.purple.withOpacity(baseOpacity * 0.6),
-          Colors.purple.withOpacity(baseOpacity * 0.4),
-          Colors.purple.withOpacity(baseOpacity * 0.1),
+          bubble.withOpacity(baseOpacity * 0.9),
+          bubble.withOpacity(baseOpacity * 0.8),
+          bubble.withOpacity(baseOpacity * 0.6),
+          bubble.withOpacity(baseOpacity * 0.4),
+          bubble.withOpacity(baseOpacity * 0.1),
         ],
         stops: [
           0.0,
