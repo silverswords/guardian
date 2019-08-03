@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:guardian/widgets/digit-clock.dart';
+import 'package:guardian/widgets/wave.dart';
 
 class Layout extends StatelessWidget {
   @override
@@ -18,6 +19,7 @@ class Layout extends StatelessWidget {
             Expanded(
               flex: 1,
               child: Container(
+                constraints: BoxConstraints.expand(),
                 margin: EdgeInsets.only(top: 12.0),
                 decoration: BoxDecoration(
                   color: Color(0xeefbc99d),
@@ -31,6 +33,13 @@ class Layout extends StatelessWidget {
                     ),
                   ],
                 ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(1),
+                  child: Container(
+                    child: Wave(),
+                    alignment: Alignment.centerLeft
+                  )
+                )
               ),
             ),
             // Row II
