@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:guardian/widgets/digit-clock.dart';
-import 'package:guardian/widgets/wave.dart';
+import 'package:guardian/global.dart';
 
 class Layout extends StatelessWidget {
   @override
