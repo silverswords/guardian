@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'dart:async';
+
+import 'package:flutter/material.dart';
 
 class Wave extends StatefulWidget { 
   @override 
