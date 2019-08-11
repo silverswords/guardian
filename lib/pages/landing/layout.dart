@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-//import 'package:guardian/widgets/digit-clock.dart';
 import 'package:guardian/global.dart';
+import 'package:guardian/pages/quizzes/arguments.dart';
+import 'package:guardian/pages/quizzes/index.dart';
 
 class Layout extends StatelessWidget {
   @override
@@ -49,37 +50,43 @@ class Layout extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     flex: 1,
-                    child: Container(
-                      margin: EdgeInsets.only(top: 12.0),
-                      decoration: BoxDecoration(
-                        color: Color(0xee5edfff),
-                        borderRadius: BorderRadius.circular(4.0),
-                        boxShadow: <BoxShadow>[
-                          BoxShadow(
-                            color: Color(0x995edfff),
-                            offset: Offset(6.0, 6.0),
-                            blurRadius: 4.0,
-                            spreadRadius: 0.8,
-                          ),
-                        ],
+                    child: GestureDetector(
+                      onTap: () => _onSecurityTapped(context),
+                      child: Container(
+                        margin: EdgeInsets.only(top: 12.0),
+                        decoration: BoxDecoration(
+                          color: Color(0xee5edfff),
+                          borderRadius: BorderRadius.circular(4.0),
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                              color: Color(0x995edfff),
+                              offset: Offset(6.0, 6.0),
+                              blurRadius: 4.0,
+                              spreadRadius: 0.8,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   Expanded(
                     flex: 1,
-                    child: Container(
-                      margin: EdgeInsets.only(top: 12.0, left: 12.0),
-                      decoration: BoxDecoration(
-                        color: Color(0xee8bbabb),
-                        borderRadius: BorderRadius.circular(4.0),
-                        boxShadow: <BoxShadow>[
-                          BoxShadow(
-                            color: Color(0x998bbabb),
-                            offset: Offset(6.0, 6.0),
-                            blurRadius: 4.0,
-                            spreadRadius: 0.8,
-                          ),
-                        ],
+                    child: GestureDetector(
+                      onTap: () => _onDrugTapped(context),
+                      child :Container(
+                        margin: EdgeInsets.only(top: 12.0, left: 12.0),
+                        decoration: BoxDecoration(
+                          color: Color(0xee8bbabb),
+                          borderRadius: BorderRadius.circular(4.0),
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                              color: Color(0x998bbabb),
+                              offset: Offset(6.0, 6.0),
+                              blurRadius: 4.0,
+                              spreadRadius: 0.8,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -133,6 +140,22 @@ class Layout extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void _onSecurityTapped(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      Quizzes.routeName,
+      arguments: QuizArguments(QuizArguments.QuizTypeSecurity),
+    );
+  }
+
+  void _onDrugTapped(BuildContext context) {
+    Navigator.pushNamed(
+      context,
+      Quizzes.routeName,
+      arguments: QuizArguments(QuizArguments.QuizTypeDrug),
     );
   }
 }

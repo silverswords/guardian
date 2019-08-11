@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:guardian/global.dart';
 import 'package:guardian/pages/landing/index.dart';
+import 'package:guardian/pages/quizzes/index.dart';
 
 class Application extends StatelessWidget {
   // This widget is the root of your application.
@@ -13,6 +14,7 @@ class Application extends StatelessWidget {
       initialRoute: Landing.routeName,
       routes: {
         Landing.routeName: (context) => Landing(),
+        Quizzes.routeName: (context) => Quizzes(),
       },
     );
   }
