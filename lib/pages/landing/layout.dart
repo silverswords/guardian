@@ -23,11 +23,11 @@ class Layout extends StatelessWidget {
                 constraints: BoxConstraints.expand(),
                 margin: EdgeInsets.only(top: 12.0),
                 decoration: BoxDecoration(
-                  color: Color(0xeefbc99d),
+                  color: Color(0xCCFBC99D),
                   borderRadius: BorderRadius.circular(4.0),
                   boxShadow: <BoxShadow>[
                     BoxShadow(
-                      color: Color(0x99fbc99d),
+                      color: Color(0x99FBC99D),
                       offset: Offset(6.0, 6.0),
                       blurRadius: 4.0,
                       spreadRadius: 0.8,
@@ -55,11 +55,11 @@ class Layout extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.only(top: 12.0),
                         decoration: BoxDecoration(
-                          color: Color(0xee5edfff),
+                          color: Color(0xCC5EDFFF),
                           borderRadius: BorderRadius.circular(4.0),
                           boxShadow: <BoxShadow>[
                             BoxShadow(
-                              color: Color(0x995edfff),
+                              color: Color(0x995EDFFF),
                               offset: Offset(6.0, 6.0),
                               blurRadius: 4.0,
                               spreadRadius: 0.8,
@@ -76,11 +76,11 @@ class Layout extends StatelessWidget {
                       child :Container(
                         margin: EdgeInsets.only(top: 12.0, left: 12.0),
                         decoration: BoxDecoration(
-                          color: Color(0xee8bbabb),
+                          color: Color(0xCC8BBABB),
                           borderRadius: BorderRadius.circular(4.0),
                           boxShadow: <BoxShadow>[
                             BoxShadow(
-                              color: Color(0x998bbabb),
+                              color: Color(0x998BBABB),
                               offset: Offset(6.0, 6.0),
                               blurRadius: 4.0,
                               spreadRadius: 0.8,
@@ -103,11 +103,11 @@ class Layout extends StatelessWidget {
                     child: Container(
                       margin: EdgeInsets.only(top: 12.0),
                       decoration: BoxDecoration(
-                        color: Color(0xeee9e5dd),
+                        color: Color(0xCCE9E5DD),
                         borderRadius: BorderRadius.circular(4.0),
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                            color: Color(0x99e9e5dd),
+                            color: Color(0x99E9E5DD),
                             offset: Offset(6.0, 6.0),
                             blurRadius: 4.0,
                             spreadRadius: 0.8,
@@ -121,11 +121,11 @@ class Layout extends StatelessWidget {
                     child: Container(
                       margin: EdgeInsets.only(top: 12.0, left: 12.0),
                       decoration: BoxDecoration(
-                        color: Color(0xeef9d276),
+                        color: Color(0xCCF9D276),
                         borderRadius: BorderRadius.circular(4.0),
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                            color: Color(0x99f9d276),
+                            color: Color(0x99F9D276),
                             offset: Offset(6.0, 6.0),
                             blurRadius: 4.0,
                             spreadRadius: 0.8,

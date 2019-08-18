@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import './background.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import 'package:guardian/global.dart';
 import './layout.dart';
 
 class Landing extends StatelessWidget {
@@ -10,7 +12,13 @@ class Landing extends StatelessWidget {
     return Container(
       child: Stack(
         children: <Widget>[
-          Background(),
+          Container(
+            child: SvgPicture.asset(
+              Resources.svgDive,
+              // color: Colors.black12,
+              fit: BoxFit.fitHeight,
+            ),
+          ),
           Container(
             child: Layout(),
           )

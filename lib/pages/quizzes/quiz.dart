@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:guardian/global.dart';
+import 'package:guardian/global.dart' as prefix0;
+import 'package:guardian/pages/quizzes/question.dart';
 import './arguments.dart';
 import './constants.dart';
 
@@ -31,69 +33,24 @@ class QuizWidgetState extends State<QuizWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return _buildInitialState(context);
-  }
-
-  Widget _buildInitialState(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        top: 200.0,
-        bottom: 100.0,
-        left: 20.0,
-        right: 20.0,
-      ),
-      child: Column(
-        children: _buildQuiz(),
-      ),
-    );
-  }
-
-  List<Widget> _buildQuiz() {
-    List<Widget> widgets = <Widget>[
-      Container(
-        child: Text(
-          quiz.question,
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            color: Colors.brown,
-            fontSize: 28,
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 2,
-          ),
-        ),
-      ),
-    ];
-
-    for (var i = 0; i < this.quiz.choices.length; i++) {
-      widgets.add(
+    return Stack(
+      children: <Widget>[
         Container(
           margin: EdgeInsets.only(
-            top: 10,
-            left: 20,
-            right: 20,
+            top: 200.0,
+            bottom: 100.0,
+            left: 20.0,
+            right: 20.0,
           ),
-          child: Row(
-            children: <Widget>[
-              Radio(
-                value: i,
-                groupValue: _answer,
-                onChanged: _onChooseAnswer,
-              ),
-              Text(
-                this.quiz.choices[i],
-                style: TextStyle(
-                  color: ((_state == QState.Failure) && ( i == _answer)) ? Colors.red : Colors.black,
-                  fontSize: 20,
-                )
-              ),
-            ],
+          child: QuestionWidget(
+            quiz: quiz,
+            state: _state,
+            answer: _answer,
+            onChanged: _onChooseAnswer,
           ),
-        )
-      );
-    }
-
-    return widgets;
+        ),
+      ],
+    );
   }
 
   void _onChooseAnswer(int value) {
