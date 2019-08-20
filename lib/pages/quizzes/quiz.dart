@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:guardian/global.dart';
-import 'package:guardian/global.dart' as prefix0;
-import 'package:guardian/pages/quizzes/question.dart';
+
+import './indicator.dart';
+import './question.dart';
 import './arguments.dart';
 import './constants.dart';
 
@@ -36,8 +37,11 @@ class QuizWidgetState extends State<QuizWidget> {
     return Stack(
       children: <Widget>[
         Container(
+          child: _buildIndicator(),
+        ),
+        Container(
           margin: EdgeInsets.only(
-            top: 200.0,
+            top: 320.0,
             bottom: 100.0,
             left: 20.0,
             right: 20.0,
@@ -80,5 +84,24 @@ class QuizWidgetState extends State<QuizWidget> {
     }
 
     this._total = this._quizzes.length;
+  }
+
+  Widget _buildIndicator() {
+    print('rebuild indicator now, $_state');
+    if (_state == QState.Correct) {
+      return IndicatorWidget.correct(onComplete: _onIndicatorAnimationCompleted);
+    } else if (_state == QState.Failure) {
+      return IndicatorWidget.error(onComplete: _onIndicatorAnimationCompleted);
+    } else {
+      return IndicatorWidget.idle();
+    }
+  }
+
+  void _onIndicatorAnimationCompleted() {
+    setState(() {
+      _state = QState.Initial;
+      _current += 1;
+      _answer = -1;
+    });
   }
 }

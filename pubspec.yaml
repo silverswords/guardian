@@ -27,6 +27,9 @@ dependencies:
   # SVG
   flutter_svg: ^0.14.0
 
+  # flare
+  flare_flutter: ^1.5.5
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -48,7 +51,7 @@ flutter:
     - assets/icons/bear.svg
     - assets/icons/dinosaur.svg
     - assets/icons/dive.svg
-  #  - images/a_dot_ham.jpeg
+    - assets/flare/teddy.flr
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
