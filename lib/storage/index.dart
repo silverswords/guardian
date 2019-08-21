@@ -1,8 +1,9 @@
-import 'package:guardian/model/quiz.dart';
+import 'package:guardian/global.dart';
+
 import './security.dart';
 
-class QuizStore {
-  static List<Quiz> get security => SecurityQuiz.content;
+class QuizStorage {
+  static List<QuizItem> get security => SecurityQuiz.content;
 
   static bool securityCheckAnswer(int seq, int answer) {
     return security[seq].answer == answer;

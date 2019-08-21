@@ -1,6 +1,6 @@
-enum QState {
+enum QuizState {
   Initial,
   Correct,
   Failure,
-  LastQuiz
+  Last,
 }

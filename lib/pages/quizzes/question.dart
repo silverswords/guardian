@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+
 import 'package:guardian/global.dart';
-import './constants.dart';
 
 class QuestionWidget extends StatelessWidget {
-  QuestionWidget({@required this.quiz, @required this.state, @required this.answer, @required this.onChanged});
+  const QuestionWidget({this.store, this.onChanged});
 
-  final int answer;
-  final QState state;
-  final Quiz quiz;
+  final QuizStore store;
   final ValueChanged<int> onChanged;
 
   @override
@@ -26,21 +25,23 @@ class QuestionWidget extends StatelessWidget {
   List<Widget> _buildQuiz() {
     List<Widget> widgets = <Widget>[
       Container(
-        child: Text(
-          quiz.question,
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            color: Colors.brown,
-            fontSize: 28,
-            fontStyle: FontStyle.normal,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 2,
+        child: Observer(
+          builder: (_) => Text(
+            store.quiz.question,
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              color: Colors.brown,
+              fontSize: 28,
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 2,
+            ),
           ),
         ),
       ),
     ];
 
-    for (var i = 0; i < this.quiz.choices.length; i++) {
+    for (var i = 0; i < store.quiz.choices.length; i++) {
       widgets.add(
         Container(
           margin: EdgeInsets.only(
@@ -50,17 +51,21 @@ class QuestionWidget extends StatelessWidget {
           ),
           child: Row(
             children: <Widget>[
-              Radio(
-                value: i,
-                groupValue: answer,
-                onChanged: onChanged,
+              Observer(
+                builder: (_) => Radio(
+                  value: i,
+                  groupValue: store.answer,
+                  onChanged: onChanged,
+                ),
               ),
-              Text(
-                this.quiz.choices[i],
-                style: TextStyle(
-                  color: ((state == QState.Failure) && ( i == answer)) ? Colors.red : Colors.black,
-                  fontSize: 20,
-                )
+              Observer(
+                builder: (_) => Text(
+                  store.quiz.choices[i],
+                  style: TextStyle(
+                    color: ((store.isWrong()) && ( i == store.answer)) ? Colors.red : Colors.black,
+                    fontSize: 20,
+                  )
+                ),
               ),
             ],
           ),

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:guardian/global.dart';
-import 'package:guardian/pages/quizzes/arguments.dart';
 import 'package:guardian/pages/quizzes/index.dart';
 
 class Layout extends StatelessWidget {
+  const Layout(this.store);
+  final QuizStore store;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -144,18 +147,20 @@ class Layout extends StatelessWidget {
   }
 
   void _onSecurityTapped(BuildContext context) {
+    store.load(QuizTypeSecurity);
+
     Navigator.pushNamed(
       context,
       Quizzes.routeName,
-      arguments: QuizArguments(QuizArguments.QuizTypeSecurity),
     );
   }
 
   void _onDrugTapped(BuildContext context) {
+    store.load(QuizTypeDrug);
+
     Navigator.pushNamed(
       context,
       Quizzes.routeName,
-      arguments: QuizArguments(QuizArguments.QuizTypeDrug),
     );
   }
 }
