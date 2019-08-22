@@ -60,6 +60,7 @@ flutter:
     - assets/icons/bear.svg
     - assets/icons/dinosaur.svg
     - assets/icons/dive.svg
+    - assets/icons/result.svg
     - assets/flare/teddy.flr
 
   # An image asset can refer to one or more resolution-specific "variants", see
