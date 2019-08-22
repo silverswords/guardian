@@ -37,13 +37,7 @@ class Layout extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(1),
-                  child: Container(
-                    child: Wave(),
-                    alignment: Alignment.centerLeft
-                  )
-                )
+                child: Wave()
               ),
             ),
             // Row II

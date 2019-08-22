@@ -31,8 +31,14 @@ class _WaveState extends State<Wave> {
 
   @override 
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: WavePainter(),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(1),
+      child: Container(
+        child: CustomPaint(
+          painter: WavePainter(),
+        ),
+        alignment: Alignment.centerLeft
+      )
     );
   }
 }
