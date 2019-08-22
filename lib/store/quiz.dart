@@ -88,4 +88,8 @@ abstract class _QuizStore with Store {
   bool isChoosed() {
     return state == QuizState.Correct || state == QuizState.Failure;
   }
+
+  bool isFinished() {
+    return state == QuizState.Last;
+  }
 }

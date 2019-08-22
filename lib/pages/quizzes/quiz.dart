@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
+import 'dart:async';
 
 import 'package:guardian/global.dart';
 
@@ -17,19 +19,38 @@ class QuizWidget extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Container(
-          child: _buildIndicator(store),
+          //color: Color(0xCCFFF1E9),
+          color: Color(0xCCDFF0EA),
         ),
         Container(
-          margin: EdgeInsets.only(
-            top: 320.0,
-            bottom: 100.0,
-            left: 20.0,
-            right: 20.0,
+          child: SvgPicture.asset(
+            Resources.svgDinosaur,
+            color: Colors.black12,
+            fit: BoxFit.fitHeight,
           ),
-          child: Observer(
-            builder: (_) => QuestionWidget(
-              onChanged: _onChooseAnswer(store),
-            ),
+        ),
+        SafeArea(
+          child: Stack(
+            children: <Widget>[
+              Container(
+                child: _buildIndicator(store),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  top: 320.0,
+                  bottom: 100.0,
+                  left: 20.0,
+                  right: 20.0,
+                ),
+                child: Observer(
+                  builder: (_) {
+                    return QuestionWidget(
+                      onChanged: _onChooseAnswer(store),
+                    );
+                  }
+                ),
+              ),
+            ],
           ),
         ),
       ],
@@ -40,6 +61,10 @@ class QuizWidget extends StatelessWidget {
     return (int value) {
       if (!store.isChoosed()) {
         store.checkAnswer(value);
+
+        Future.delayed(const Duration(milliseconds: 2500), () {
+          store.next();
+        });
       }
     };
   }

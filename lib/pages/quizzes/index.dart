@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
 import 'package:guardian/global.dart';
 import './quiz.dart';
+import './result.dart';
 
 class Quizzes extends StatelessWidget {
   static const List<String> quizTitles = ['安全教育', '防毒教育'];
@@ -22,27 +22,15 @@ class Quizzes extends StatelessWidget {
           builder: (_) => Text(quizTitles[store.type])
         ),
       ),
-      body: Stack(
-        children: <Widget>[
-          Container(
-            //color: Color(0xCCFFF1E9),
-            color: Color(0xCCDFF0EA),
-          ),
-          Container(
-            child: SvgPicture.asset(
-              Resources.svgDinosaur,
-              color: Colors.black12,
-              fit: BoxFit.fitHeight,
-            ),
-          ),
-          SafeArea(
-            child: Container(
-              child: Center(
-                child: QuizWidget(),
-              ),
-            ),
-          ),
-        ],
+      body: Container(
+        child: Observer(
+          builder: (_) {
+            if (store.isFinished()) {
+              return ResultWidget();
+            }
+            return QuizWidget();
+          }
+        ),
       )
     );
   }
