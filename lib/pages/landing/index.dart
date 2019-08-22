@@ -7,9 +7,7 @@ import './layout.dart';
 class Landing extends StatelessWidget {
   static const routeName = '/';
 
-  const Landing(this.store);
-
-  final QuizStore store;
+  const Landing();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class Landing extends StatelessWidget {
             ),
           ),
           Container(
-            child: Layout(store),
+            child: Layout(),
           )
         ],
       ),

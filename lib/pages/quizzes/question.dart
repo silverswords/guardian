@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
 
 import 'package:guardian/global.dart';
 
 class QuestionWidget extends StatelessWidget {
-  const QuestionWidget({this.store, this.onChanged});
+  const QuestionWidget({this.onChanged});
 
-  final QuizStore store;
   final ValueChanged<int> onChanged;
 
   @override
@@ -17,12 +17,14 @@ class QuestionWidget extends StatelessWidget {
   Widget _buildInitialState(BuildContext context) {
     return Container(
       child: Column(
-        children: _buildQuiz(),
+        children: _buildQuiz(context),
       ),
     );
   }
 
-  List<Widget> _buildQuiz() {
+  List<Widget> _buildQuiz(BuildContext context) {
+    final store = Provider.of<QuizStore>(context);
+
     List<Widget> widgets = <Widget>[
       Container(
         child: Observer(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:guardian/global.dart';
 import 'package:guardian/pages/quizzes/index.dart';
 
 class Layout extends StatelessWidget {
-  const Layout(this.store);
-  final QuizStore store;
+  const Layout();
 
   @override
   Widget build(BuildContext context) {
@@ -147,6 +147,7 @@ class Layout extends StatelessWidget {
   }
 
   void _onSecurityTapped(BuildContext context) {
+    final store = Provider.of<QuizStore>(context);
     store.load(QuizTypeSecurity);
 
     Navigator.pushNamed(
@@ -156,6 +157,7 @@ class Layout extends StatelessWidget {
   }
 
   void _onDrugTapped(BuildContext context) {
+    final store = Provider.of<QuizStore>(context);
     store.load(QuizTypeDrug);
 
     Navigator.pushNamed(

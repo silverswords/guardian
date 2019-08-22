@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
 
 import 'package:guardian/global.dart';
 import './quiz.dart';
@@ -9,12 +10,12 @@ class Quizzes extends StatelessWidget {
   static const List<String> quizTitles = ['安全教育', '防毒教育'];
   static const routeName = '/quiz';
 
-  const Quizzes(this.store);
-
-  final QuizStore store;
+  const Quizzes();
 
   @override
   Widget build(BuildContext context) {
+    final store = Provider.of<QuizStore>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Observer(
@@ -37,7 +38,7 @@ class Quizzes extends StatelessWidget {
           SafeArea(
             child: Container(
               child: Center(
-                child: QuizWidget(store: store),
+                child: QuizWidget(),
               ),
             ),
           ),

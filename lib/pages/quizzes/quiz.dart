@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
 
 import 'package:guardian/global.dart';
 
@@ -7,16 +8,16 @@ import './indicator.dart';
 import './question.dart';
 
 class QuizWidget extends StatelessWidget {
-  const QuizWidget({this.store});
-
-  final QuizStore store;
+  const QuizWidget();
 
   @override
   Widget build(BuildContext context) {
+    final store = Provider.of<QuizStore>(context);
+
     return Stack(
       children: <Widget>[
         Container(
-          child: _buildIndicator(),
+          child: _buildIndicator(store),
         ),
         Container(
           margin: EdgeInsets.only(
@@ -27,8 +28,7 @@ class QuizWidget extends StatelessWidget {
           ),
           child: Observer(
             builder: (_) => QuestionWidget(
-              store: store,
-              onChanged: _onChooseAnswer,
+              onChanged: _onChooseAnswer(store),
             ),
           ),
         ),
@@ -36,13 +36,15 @@ class QuizWidget extends StatelessWidget {
     );
   }
 
-  void _onChooseAnswer(int value) {
-    if (!store.isChoosed()) {
-      store.checkAnswer(value);
-    }
+  ValueChanged<int> _onChooseAnswer(QuizStore store) {
+    return (int value) {
+      if (!store.isChoosed()) {
+        store.checkAnswer(value);
+      }
+    };
   }
 
-  Widget _buildIndicator() {
+  Widget _buildIndicator(QuizStore store) {
     return Observer(
       builder: (_) {
         if (store.isCorrect()) {
