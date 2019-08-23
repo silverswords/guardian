@@ -38,7 +38,7 @@ class QuizWidget extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(
                   top: 320.0,
-                  bottom: 100.0,
+                  bottom: 10.0,
                   left: 20.0,
                   right: 20.0,
                 ),
