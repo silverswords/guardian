@@ -30,6 +30,9 @@ dependencies:
   # flare
   flare_flutter: ^1.5.5
 
+  # nima
+  nima: ^1.0.5
+
   ## State Management
   mobx: 0.3.5
   flutter_mobx: 0.3.0+1
@@ -60,8 +63,8 @@ flutter:
     - assets/icons/bear.svg
     - assets/icons/dinosaur.svg
     - assets/icons/dive.svg
-    - assets/icons/result.svg
     - assets/flare/teddy.flr
+    - assets/flare/trophy.flr
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
