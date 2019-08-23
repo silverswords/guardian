@@ -19,38 +19,21 @@ class QuizWidget extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Container(
-          //color: Color(0xCCFFF1E9),
-          color: Color(0xCCDFF0EA),
+          child: _buildIndicator(store),
         ),
         Container(
-          child: SvgPicture.asset(
-            Resources.svgDinosaur,
-            color: Colors.black12,
-            fit: BoxFit.fitHeight,
+          margin: EdgeInsets.only(
+            top: 320.0,
+            bottom: 10.0,
+            left: 20.0,
+            right: 20.0,
           ),
-        ),
-        SafeArea(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                child: _buildIndicator(store),
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                  top: 320.0,
-                  bottom: 10.0,
-                  left: 20.0,
-                  right: 20.0,
-                ),
-                child: Observer(
-                  builder: (_) {
-                    return QuestionWidget(
-                      onChanged: _onChooseAnswer(store),
-                    );
-                  }
-                ),
-              ),
-            ],
+          child: Observer(
+            builder: (_) {
+              return QuestionWidget(
+                onChanged: _onChooseAnswer(store),
+              );
+            }
           ),
         ),
       ],
@@ -59,11 +42,13 @@ class QuizWidget extends StatelessWidget {
 
   ValueChanged<int> _onChooseAnswer(QuizStore store) {
     return (int value) {
-      if (!store.isChoosed()) {
+      if (!store.isCorrect()) {
         store.checkAnswer(value);
 
-        Future.delayed(const Duration(milliseconds: 2500), () {
-          store.next();
+        Future.delayed(const Duration(milliseconds: 1200), () {
+          if (store.isCorrect()) {
+            store.next();
+          }
         });
       }
     };

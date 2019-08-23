@@ -61,12 +61,15 @@ class QuestionWidget extends StatelessWidget {
                 ),
               ),
               Observer(
-                builder: (_) => Text(
-                  store.quiz.choices[i],
-                  style: TextStyle(
-                    color: ((store.isWrong()) && ( i == store.answer)) ? Colors.red : Colors.black,
-                    fontSize: 20,
-                  )
+                builder: (_) => GestureDetector(
+                  onTap: () => onChanged(i),
+                  child: Text(
+                    store.quiz.choices[i],
+                    style: TextStyle(
+                      color: _questionColor(store, i),
+                      fontSize: 20,
+                    )
+                  ),
                 ),
               ),
             ],
@@ -76,5 +79,19 @@ class QuestionWidget extends StatelessWidget {
     }
 
     return widgets;
+  }
+
+  Color _questionColor(QuizStore store, int index) {
+    if (index == store.answer) {
+      if (store.isWrong()) {
+        return Colors.red;
+      }
+
+      if (store.isCorrect()) {
+        return Colors.green;
+      }
+    }
+
+    return Colors.black;
   }
 }

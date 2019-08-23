@@ -3,8 +3,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
 import 'package:guardian/global.dart';
-import './quiz.dart';
-import './result.dart';
+import './switcher.dart';
 
 class Quizzes extends StatelessWidget {
   static const List<String> quizTitles = ['安全教育', '防毒教育'];
@@ -23,14 +22,7 @@ class Quizzes extends StatelessWidget {
         ),
       ),
       body: Container(
-        child: Observer(
-          builder: (_) {
-            if (store.isFinished()) {
-              return ResultWidget();
-            }
-            return QuizWidget();
-          }
-        ),
+        child: SwitcherWidget(),
       )
     );
   }
