@@ -21,14 +21,21 @@ class ResultWidget extends StatelessWidget {
             ),
           ),
           Container(
-            height: 120,
+            height: 48,
             child: FlatButton(
+              padding: EdgeInsets.only(
+                left: 48,
+                right: 48,
+              ),
               onPressed: () {
                 Navigator.pop(context);
               },
               child: Text(
                 '返回首页'
               ),
+              textColor: Color(0xffff935c),
+              textTheme: ButtonTextTheme.primary,
+              color: Color(0xccd2fafb),
             ),
           ),
         ],

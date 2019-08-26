@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
 
@@ -16,8 +17,10 @@ class QuestionWidget extends StatelessWidget {
 
   Widget _buildInitialState(BuildContext context) {
     return Container(
-      child: Column(
-        children: _buildQuiz(context),
+      child: SingleChildScrollView(
+        child: Column(
+          children: _buildQuiz(context),
+        ),
       ),
     );
   }

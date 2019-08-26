@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'package:guardian/global.dart';
 import 'package:guardian/pages/quizzes/index.dart';
+import './tile.dart';
 
 class Layout extends StatelessWidget {
   const Layout();
@@ -63,6 +64,7 @@ class Layout extends StatelessWidget {
                             ),
                           ],
                         ),
+                        child: TileWidget(path: Resources.svgSuburbs, title: '安全教育',),
                       ),
                     ),
                   ),
@@ -84,6 +86,7 @@ class Layout extends StatelessWidget {
                             ),
                           ],
                         ),
+                        child: TileWidget(path: Resources.svgMedicine, title: '防毒品教育')
                       ),
                     ),
                   ),
@@ -111,6 +114,7 @@ class Layout extends StatelessWidget {
                           ),
                         ],
                       ),
+                      child: TileWidget(path: Resources.svgTeam, title: '制作人员')
                     ),
                   ),
                   Expanded(

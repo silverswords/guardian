@@ -63,6 +63,9 @@ flutter:
     - assets/icons/bear.svg
     - assets/icons/dinosaur.svg
     - assets/icons/dive.svg
+    - assets/icons/suburbs.svg
+    - assets/icons/medicine.svg
+    - assets/icons/team.svg
     - assets/flare/teddy.flr
     - assets/flare/trophy.flr
 
