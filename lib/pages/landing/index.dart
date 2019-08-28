@@ -17,8 +17,9 @@ class Landing extends StatelessWidget {
           Container(
             child: SvgPicture.asset(
               Resources.svgDive,
-              // color: Colors.black12,
               fit: BoxFit.fitHeight,
+              color: Color(0x772C003E),
+              colorBlendMode: BlendMode.hardLight,
             ),
           ),
           Container(
